@@ -1,14 +1,8 @@
-# Use official Nginx image
+# Use official nginx image
 FROM nginx:alpine
 
-# Remove default nginx static files
-RUN rm -rf /usr/share/nginx/html/*
-
-# Copy your project files to Nginx web root
+# Copy project files to nginx html folder
 COPY . /usr/share/nginx/html
 
-# Expose port 80
+# Expose nginx default port
 EXPOSE 80
-
-# Start Nginx
-CMD ["nginx", "-g", "daemon off;"]
